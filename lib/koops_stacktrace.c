@@ -479,22 +479,6 @@ sr_koops_stacktrace_parse_modules(const char **input)
 
             local_input++;
 
-            /* If the next line does not start with space and there wasn't
-             * any space before the newline either, then the last module was
-             * split into two parts and we need to read the rest */
-            if (*local_input != ' ' && ws == 0 && result_offset > 0)
-            {
-                char *therest;
-                if (!sr_parse_char_cspan(&local_input, " \t\n[", &therest))
-                {
-                    break; /* wtf? */
-                }
-
-                char *tmp = sr_asprintf("%s%s", result[result_offset-1], therest);
-                free(result[result_offset-1]);
-                result[result_offset-1] = tmp;
-            }
-
             ws = sr_skip_char_span(&local_input, " \t");
         }
         else

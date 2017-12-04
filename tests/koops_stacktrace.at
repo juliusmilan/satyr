@@ -62,7 +62,7 @@ main(void)
     check(true, " Modules linked in: vfat fat usb_storage\n [last unloaded: scsi_wait_scan]\n",
           modules);
 
-    check(true, "Modules linked in: vfat fat usb_st\norage [last unloaded: scsi_wait_scan]\n",
+    check(true, "Modules linked in: vfat fat\nusb_storage [last unloaded: scsi_wait_scan]\n",
           modules);
 
     check(true, "Modules linked in: vfat fat \nusb_storage [last unloaded: scsi_wait_scan]\n",
